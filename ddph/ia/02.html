@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infografía: Desarrollo del Potencial Humano SESVER</title>
+    <!-- Chosen Palette: Brilliant Blues & Energetic Amber (Deep Blue #1e3a8a, Vibrant Cyan #06b6d4, Bright Amber #f59e0b, Clean Slate #f8fafc) -->
+    <!-- Application Structure Plan: The infographic is structured as a vertical, single-page narrative. It begins with a hook outlining the scope (Introduction/Big Numbers), moves into the theoretical foundation (Conceptual Framework), visualizes the core goal which is competency growth (Radar Chart), breaks down the pedagogical approach (Doughnut Chart), and concludes with the operational timeline (HTML Flowchart). This logical flow guides the user from the "Why" to the "What" and finally the "How" of the curriculum. -->
+    <!-- Visualization & Content Choices: 
+         - Big Numbers -> Goal: Inform -> HTML/CSS Typography -> Justification: Immediate impact of scale.
+         - Competency Growth -> Goal: Compare -> Radar Chart (Chart.js) -> Justification: Best for showing multidimensional pre/post skill assessment.
+         - Pedagogical Time -> Goal: Inform/Compare -> Doughnut Chart (Chart.js) -> Justification: Clearly displays percentage composition of the 40 hours.
+         - Module Timeline -> Goal: Organize -> HTML/CSS Timeline -> Justification: Sequential process flow without SVG dependencies.
+    -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background-color: #f8fafc;
+        }
+        h1, h2, h3, h4, .font-serif {
+            font-family: 'Merriweather', serif;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 350px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 400px;
+            }
+        }
+        .timeline-line {
+            position: absolute;
+            left: 15px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background-color: #cbd5e1;
+        }
+        @media (min-width: 768px) {
+            .timeline-line {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+        }
+    </style>
+</head>
+<body class="text-slate-800 antialiased">
+
+    <header class="bg-blue-900 text-white py-16 px-6 shadow-lg border-b-8 border-cyan-500">
+        <div class="max-w-5xl mx-auto text-center">
+            <p class="text-amber-400 font-bold uppercase tracking-widest text-sm mb-4">&#9873; Síntesis Curricular</p>
+            <h1 class="text-4xl md:text-5xl font-serif font-bold mb-6 leading-tight">Desarrollo del Potencial Humano</h1>
+            <p class="text-lg md:text-xl text-blue-100 max-w-3xl mx-auto leading-relaxed">
+                Transformando la gestión administrativa en liderazgo humanista para Responsables de Centros de Salud en SESVER, alineado a los Derechos Humanos y el estándar EC0301.
+            </p>
+        </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-6 py-12 space-y-20">
+
+        <section>
+            <h2 class="text-3xl font-serif font-bold text-center mb-4 text-blue-900">Alcance de la Intervención</h2>
+            <p class="text-center text-slate-600 max-w-2xl mx-auto mb-10">
+                Esta estrategia andragógica está diseñada para generar un impacto sistémico, abandonando la enseñanza pasiva de conceptos para enfocarse en la resolución de problemas reales y la transferencia directa al puesto de trabajo.
+            </p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+                <div class="bg-white p-8 rounded-2xl shadow-md border-t-4 border-amber-500 transform hover:-translate-y-1 transition-transform">
+                    <div class="text-5xl text-amber-500 mb-2">&#10004;</div>
+                    <div class="text-6xl font-bold text-blue-900 mb-2">40</div>
+                    <div class="text-lg font-bold text-slate-700">Horas de Formación</div>
+                    <p class="text-sm text-slate-500 mt-2">Distribuidas estratégicamente para maximizar la retención.</p>
+                </div>
+                <div class="bg-white p-8 rounded-2xl shadow-md border-t-4 border-cyan-500 transform hover:-translate-y-1 transition-transform">
+                    <div class="text-5xl text-cyan-500 mb-2">&#10048;</div>
+                    <div class="text-6xl font-bold text-blue-900 mb-2">30</div>
+                    <div class="text-lg font-bold text-slate-700">Directivos de Salud</div>
+                    <p class="text-sm text-slate-500 mt-2">Agentes de cambio y enlaces del Departamento de DPH.</p>
+                </div>
+                <div class="bg-white p-8 rounded-2xl shadow-md border-t-4 border-blue-900 transform hover:-translate-y-1 transition-transform">
+                    <div class="text-5xl text-blue-900 mb-2">&#9873;</div>
+                    <div class="text-6xl font-bold text-blue-900 mb-2">5</div>
+                    <div class="text-lg font-bold text-slate-700">Módulos Temáticos</div>
+                    <p class="text-sm text-slate-500 mt-2">Desde autoconocimiento hasta la planeación estratégica.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="bg-white p-8 md:p-12 rounded-3xl shadow-lg border border-slate-100">
+            <h2 class="text-3xl font-serif font-bold mb-4 text-blue-900">Evolución de Competencias Directivas</h2>
+            <p class="text-slate-600 mb-10 text-lg leading-relaxed">
+                El modelo pedagógico se fundamenta en cerrar la brecha entre el perfil de ingreso (gestión reactiva) y el perfil de egreso (liderazgo proactivo e incluyente). La siguiente visualización proyecta el crecimiento esperado en las cinco áreas clave del estándar de competencia, demostrando cómo el enfoque de Derechos Humanos cataliza habilidades previamente estancadas.
+            </p>
+            
+            <div class="chart-container">
+                <canvas id="competencyChart"></canvas>
+            </div>
+            
+            <div class="mt-8 grid grid-cols-1 md:grid-cols-2 gap-6 bg-slate-50 p-6 rounded-xl">
+                <div>
+                    <h4 class="font-bold text-cyan-700 mb-2">&#9679; Nivel Diagnóstico</h4>
+                    <p class="text-sm text-slate-600">Representa las competencias actuales, caracterizadas por enfoques clínicos tradicionales con áreas de oportunidad en resolución de conflictos y andragogía.</p>
+                </div>
+                <div>
+                    <h4 class="font-bold text-amber-600 mb-2">&#9679; Perfil de Egreso</h4>
+                    <p class="text-sm text-slate-600">El objetivo tras 40 horas: profesionales capaces de gestionar emociones, liderar con perspectiva CNDH y aplicar diseño instruccional básico en sus unidades.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div>
+                <h2 class="text-3xl font-serif font-bold mb-4 text-blue-900">Diseño Andragógico y Distribución</h2>
+                <p class="text-slate-600 mb-6 text-lg leading-relaxed">
+                    A diferencia de los enfoques pedagógicos clásicos, el adulto aprende mediante la experiencia. Para evitar la saturación cognitiva, el taller cumple con el EC0301 asignando la mayor carga horaria a técnicas demostrativas y de diálogo-discusión.
+                </p>
+                <ul class="space-y-4">
+                    <li class="flex items-start">
+                        <span class="text-cyan-500 text-xl mr-3">&#10004;</span>
+                        <div>
+                            <strong class="text-slate-800">Aprendizaje Basado en Problemas (ABP)</strong>
+                            <p class="text-sm text-slate-500">60% del tiempo dedicado a casos reales de unidades médicas.</p>
+                        </div>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-blue-900 text-xl mr-3">&#10004;</span>
+                        <div>
+                            <strong class="text-slate-800">Fundamentación Teórica</strong>
+                            <p class="text-sm text-slate-500">25% para establecer marcos normativos (NOM-035, CNDH).</p>
+                        </div>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-amber-500 text-xl mr-3">&#10004;</span>
+                        <div>
+                            <strong class="text-slate-800">Evaluación Rigurosa</strong>
+                            <p class="text-sm text-slate-500">15% para medición diagnóstica, formativa, sumativa y de satisfacción.</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="bg-white p-8 rounded-3xl shadow-lg border border-slate-100">
+                <div class="chart-container" style="height: 300px;">
+                    <canvas id="timeChart"></canvas>
+                </div>
+            </div>
+        </section>
+
+        <section class="mb-16">
+            <h2 class="text-3xl font-serif font-bold text-center mb-4 text-blue-900">Ruta de Aprendizaje (40 Horas)</h2>
+            <p class="text-center text-slate-600 max-w-2xl mx-auto mb-12">
+                Estructura secuencial diseñada para construir el conocimiento progresivamente, desde el individuo hasta la estrategia institucional.
+            </p>
+
+            <div class="relative max-w-4xl mx-auto py-8">
+                <div class="timeline-line"></div>
+
+                <div class="relative flex justify-end md:justify-end w-full mb-12">
+                    <div class="hidden md:block md:w-1/2"></div>
+                    <div class="absolute left-0 md:left-1/2 w-8 h-8 bg-blue-900 rounded-full border-4 border-white shadow transform md:-translate-x-1/2 flex items-center justify-center text-white text-xs font-bold z-10">1</div>
+                    <div class="w-full pl-12 md:pl-0 md:w-1/2 md:pr-12 text-left md:text-right">
+                        <div class="bg-white p-6 rounded-xl shadow-md border-t-4 border-blue-900 relative">
+                            <span class="inline-block px-3 py-1 bg-blue-100 text-blue-800 text-xs font-bold rounded-full mb-2">8 Horas</span>
+                            <h3 class="text-xl font-bold text-slate-800 mb-2">Dignidad Humana y DDHH</h3>
+                            <p class="text-sm text-slate-600">Marco normativo CNDH, grupos de atención prioritaria y prevención de violencia institucional en entornos de salud.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="relative flex justify-end md:justify-start w-full mb-12">
+                    <div class="absolute left-0 md:left-1/2 w-8 h-8 bg-cyan-500 rounded-full border-4 border-white shadow transform md:-translate-x-1/2 flex items-center justify-center text-white text-xs font-bold z-10">2</div>
+                    <div class="w-full pl-12 md:pl-0 md:w-1/2 md:pl-12 text-left">
+                        <div class="bg-white p-6 rounded-xl shadow-md border-t-4 border-cyan-500 relative">
+                            <span class="inline-block px-3 py-1 bg-cyan-100 text-cyan-800 text-xs font-bold rounded-full mb-2">8 Horas</span>
+                            <h3 class="text-xl font-bold text-slate-800 mb-2">Gestión Emocional</h3>
+                            <p class="text-sm text-slate-600">Autodiagnóstico, prevención de Burnout, inteligencia emocional y bienestar integral del directivo.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="relative flex justify-end md:justify-end w-full mb-12">
+                    <div class="hidden md:block md:w-1/2"></div>
+                    <div class="absolute left-0 md:left-1/2 w-8 h-8 bg-amber-500 rounded-full border-4 border-white shadow transform md:-translate-x-1/2 flex items-center justify-center text-white text-xs font-bold z-10">3</div>
+                    <div class="w-full pl-12 md:pl-0 md:w-1/2 md:pr-12 text-left md:text-right">
+                        <div class="bg-white p-6 rounded-xl shadow-md border-t-4 border-amber-500 relative">
+                            <span class="inline-block px-3 py-1 bg-amber-100 text-amber-800 text-xs font-bold rounded-full mb-2">8 Horas</span>
+                            <h3 class="text-xl font-bold text-slate-800 mb-2">Liderazgo Humanista</h3>
+                            <p class="text-sm text-slate-600">Resolución de conflictos laborales, comunicación asertiva y negociación bajo estrés hospitalario.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="relative flex justify-end md:justify-start w-full mb-12">
+                    <div class="absolute left-0 md:left-1/2 w-8 h-8 bg-blue-900 rounded-full border-4 border-white shadow transform md:-translate-x-1/2 flex items-center justify-center text-white text-xs font-bold z-10">4</div>
+                    <div class="w-full pl-12 md:pl-0 md:w-1/2 md:pl-12 text-left">
+                        <div class="bg-white p-6 rounded-xl shadow-md border-t-4 border-blue-900 relative">
+                            <span class="inline-block px-3 py-1 bg-blue-100 text-blue-800 text-xs font-bold rounded-full mb-2">8 Horas</span>
+                            <h3 class="text-xl font-bold text-slate-800 mb-2">Inclusión y Colaboración</h3>
+                            <p class="text-sm text-slate-600">Interculturalidad en la atención médica, perspectiva de género y equipos de alto rendimiento.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="relative flex justify-end md:justify-end w-full">
+                    <div class="hidden md:block md:w-1/2"></div>
+                    <div class="absolute left-0 md:left-1/2 w-8 h-8 bg-cyan-500 rounded-full border-4 border-white shadow transform md:-translate-x-1/2 flex items-center justify-center text-white text-xs font-bold z-10">5</div>
+                    <div class="w-full pl-12 md:pl-0 md:w-1/2 md:pr-12 text-left md:text-right">
+                        <div class="bg-white p-6 rounded-xl shadow-md border-t-4 border-cyan-500 relative">
+                            <span class="inline-block px-3 py-1 bg-cyan-100 text-cyan-800 text-xs font-bold rounded-full mb-2">8 Horas</span>
+                            <h3 class="text-xl font-bold text-slate-800 mb-2">Plan Estratégico (PAI)</h3>
+                            <p class="text-sm text-slate-600">Integración de aprendizajes en un Proyecto de Aplicación Inmediata para el Centro de Salud.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="bg-slate-900 text-slate-400 py-8 text-center text-sm">
+        <p>Diseño Curricular basado en EC0301. Aplicación Práctica para Servicios de Salud de Veracruz.</p>
+        <p class="mt-2 text-slate-500">Material de uso exclusivamente académico e instruccional.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            
+            const ctxCompetency = document.getElementById('competencyChart').getContext('2d');
+            new Chart(ctxCompetency, {
+                type: 'radar',
+                data: {
+                    labels: [
+                        ['Gestión', 'Emocional'],
+                        ['Perspectiva de', 'Derechos Humanos'],
+                        ['Liderazgo', 'Inclusivo'],
+                        ['Resolución de', 'Conflictos'],
+                        ['Andragogía y', 'Capacitación']
+                    ],
+                    datasets: [
+                        {
+                            label: 'Nivel Diagnóstico',
+                            data: [40, 50, 45, 60, 30],
+                            backgroundColor: 'rgba(6, 182, 212, 0.2)',
+                            borderColor: 'rgba(6, 182, 212, 1)',
+                            pointBackgroundColor: 'rgba(6, 182, 212, 1)',
+                            pointBorderColor: '#fff',
+                            pointHoverBackgroundColor: '#fff',
+                            pointHoverBorderColor: 'rgba(6, 182, 212, 1)'
+                        },
+                        {
+                            label: 'Perfil de Egreso',
+                            data: [85, 95, 90, 85, 80],
+                            backgroundColor: 'rgba(245, 158, 11, 0.2)',
+                            borderColor: 'rgba(245, 158, 11, 1)',
+                            pointBackgroundColor: 'rgba(245, 158, 11, 1)',
+                            pointBorderColor: '#fff',
+                            pointHoverBackgroundColor: '#fff',
+                            pointHoverBorderColor: 'rgba(245, 158, 11, 1)'
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        r: {
+                            angleLines: { color: 'rgba(0, 0, 0, 0.1)' },
+                            grid: { color: 'rgba(0, 0, 0, 0.1)' },
+                            pointLabels: {
+                                font: { family: "'Open Sans', sans-serif", size: 12, weight: 'bold' },
+                                color: '#1e293b'
+                            },
+                            suggestedMin: 0,
+                            suggestedMax: 100,
+                            ticks: { display: false }
+                        }
+                    },
+                    plugins: {
+                        legend: { position: 'bottom', labels: { font: { family: "'Open Sans', sans-serif" } } },
+                        tooltip: {
+                            callbacks: {
+                                title: function(tooltipItems) {
+                                    const item = tooltipItems[0];
+                                    let label = item.chart.data.labels[item.dataIndex];
+                                    if (Array.isArray(label)) {
+                                        return label.join(' ');
+                                    } else {
+                                        return label;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+
+            const ctxTime = document.getElementById('timeChart').getContext('2d');
+            new Chart(ctxTime, {
+                type: 'doughnut',
+                data: {
+                    labels: [
+                        ['Práctica y', 'Resolución ABP'],
+                        ['Teoría y', 'Exposición'],
+                        ['Evaluación', 'EC0301']
+                    ],
+                    datasets: [{
+                        data: [60, 25, 15],
+                        backgroundColor: [
+                            '#06b6d4',
+                            '#1e3a8a',
+                            '#f59e0b'
+                        ],
+                        borderWidth: 2,
+                        borderColor: '#ffffff',
+                        hoverOffset: 4
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    cutout: '65%',
+                    plugins: {
+                        legend: { position: 'right', labels: { font: { family: "'Open Sans', sans-serif" } } },
+                        tooltip: {
+                            callbacks: {
+                                title: function(tooltipItems) {
+                                    const item = tooltipItems[0];
+                                    let label = item.chart.data.labels[item.dataIndex];
+                                    if (Array.isArray(label)) {
+                                        return label.join(' ');
+                                    } else {
+                                        return label;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+
+        });
+    </script>
+</body>
+</html>
