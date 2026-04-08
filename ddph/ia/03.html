@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5, user-scalable=yes">
+  <meta name="description" content="Taller: Desarrollo del Potencial Humano con Enfoque de Derechos Humanos y Agenda 2030 en los Servicios de Salud de Veracruz. Diseño curricular alineado a EC0301, SESVER y CNDH.">
+  <meta name="keywords" content="SESVER, CNDH, desarrollo humano, derechos humanos, capacitación, salud, Veracruz, EC0301, andragogía, ODS">
+  <meta name="author" content="Departamento de Desarrollo del Potencial Humano, SESVER">
+  <title>Taller DPH · SESVER & CNDH | Desarrollo del Potencial Humano</title>
+  <!-- Fuentes profesionales -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Merriweather:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <!-- Font Awesome para iconos institucionales -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #f5f9fc;
+      color: #1a2a3a;
+      line-height: 1.6;
+    }
+    h1, h2, h3, h4 {
+      font-family: 'Merriweather', serif;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+    }
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+    /* Header institucional */
+    .top-bar {
+      background: #0b2b4a; /* azul marino institucional */
+      color: white;
+      padding: 6px 0;
+      font-size: 0.9rem;
+    }
+    .top-bar .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .institution-logos {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+    .logo-placeholder {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .logo-icon {
+      font-size: 1.8rem;
+      color: #e6b422; /* dorado CNDH */
+    }
+    .logo-text {
+      font-weight: 600;
+      line-height: 1.2;
+    }
+    .logo-text small {
+      font-size: 0.7rem;
+      font-weight: 400;
+      opacity: 0.9;
+    }
+    .main-header {
+      background: linear-gradient(135deg, #ffffff 0%, #eef4fa 100%);
+      border-bottom: 4px solid #1b6b50; /* verde salud */
+      padding: 28px 0 20px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+    }
+    .main-header .container {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .title-section h1 {
+      font-size: 2.2rem;
+      color: #0b2b4a;
+      margin-bottom: 8px;
+    }
+    .title-section .subhead {
+      font-size: 1.1rem;
+      color: #2c5f7a;
+      font-weight: 500;
+    }
+    .badge-dph {
+      background: #1b6b50;
+      color: white;
+      padding: 12px 20px;
+      border-radius: 40px;
+      text-align: center;
+      font-weight: 600;
+      box-shadow: 0 6px 10px rgba(27,107,80,0.2);
+    }
+    .badge-dph i {
+      margin-right: 8px;
+    }
+    /* Navegación */
+    .nav-bar {
+      background: white;
+      border-bottom: 1px solid #d0e0e8;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+    }
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      list-style: none;
+      gap: 8px;
+    }
+    .nav-links li a {
+      display: inline-block;
+      padding: 14px 18px;
+      color: #1a3a4f;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.95rem;
+      border-bottom: 3px solid transparent;
+      transition: all 0.2s;
+    }
+    .nav-links li a:hover, .nav-links li a.active {
+      border-bottom-color: #1b6b50;
+      color: #0b2b4a;
+      background: #f0f7fc;
+    }
+    /* Secciones */
+    section {
+      padding: 48px 0;
+      border-bottom: 1px solid #d8e4ec;
+    }
+    section:last-of-type {
+      border-bottom: none;
+    }
+    .section-title {
+      font-size: 2rem;
+      color: #0b2b4a;
+      margin-bottom: 24px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .section-title i {
+      color: #1b6b50;
+      font-size: 1.8rem;
+    }
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+      margin-top: 24px;
+    }
+    .card {
+      background: white;
+      border-radius: 16px;
+      padding: 24px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.04);
+      border: 1px solid #e1edf2;
+      transition: transform 0.15s;
+    }
+    .card:hover {
+      transform: translateY(-3px);
+    }
+    .card h3 {
+      color: #0b2b4a;
+      margin-bottom: 16px;
+      border-left: 5px solid #e6b422;
+      padding-left: 16px;
+    }
+    /* Tabla curricular */
+    .table-responsive {
+      overflow-x: auto;
+      margin: 32px 0;
+      border-radius: 12px;
+      border: 1px solid #cbdae3;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: white;
+      font-size: 0.95rem;
+    }
+    th {
+      background: #0b2b4a;
+      color: white;
+      padding: 14px 12px;
+      text-align: left;
+      font-weight: 600;
+    }
+    td {
+      padding: 14px 12px;
+      border-bottom: 1px solid #dde7ed;
+      vertical-align: top;
+    }
+    tr:last-child td {
+      border-bottom: none;
+    }
+    .module-tag {
+      background: #eef2f6;
+      padding: 2px 10px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: #1a4b5e;
+    }
+    /* Acordeón para detalles de módulo */
+    .accordion-item {
+      background: white;
+      border-radius: 12px;
+      margin-bottom: 12px;
+      border: 1px solid #cbdae3;
+      overflow: hidden;
+    }
+    .accordion-header {
+      padding: 18px 24px;
+      background: #fafdff;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-weight: 600;
+      color: #0b2b4a;
+      transition: background 0.2s;
+    }
+    .accordion-header:hover {
+      background: #e6f0f7;
+    }
+    .accordion-header i {
+      color: #1b6b50;
+      transition: transform 0.3s;
+    }
+    .accordion-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease-out;
+      background: white;
+    }
+    .accordion-content-inner {
+      padding: 20px 24px 28px;
+      border-top: 1px solid #d0e0e8;
+    }
+    .active-acc .accordion-header i {
+      transform: rotate(90deg);
+    }
+    .active-acc .accordion-content {
+      max-height: 800px; /* suficiente para contenido */
+    }
+    /* Encuesta Likert */
+    .survey-box {
+      background: white;
+      border-radius: 24px;
+      padding: 32px;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.05);
+      border: 1px solid #cfdfe9;
+    }
+    .likert-scale {
+      display: flex;
+      justify-content: space-between;
+      margin: 12px 0 24px;
+      font-size: 0.85rem;
+      color: #3c5e74;
+    }
+    .survey-item {
+      margin-bottom: 20px;
+      border-bottom: 1px dashed #bdd2e0;
+      padding-bottom: 15px;
+    }
+    .survey-item p {
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+    .radio-group {
+      display: flex;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+    .radio-group label {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      cursor: pointer;
+    }
+    .btn {
+      background: #1b6b50;
+      color: white;
+      border: none;
+      padding: 14px 32px;
+      border-radius: 40px;
+      font-weight: 600;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.2s;
+      border: 1px solid #145a43;
+    }
+    .btn:hover {
+      background: #0f4f3a;
+    }
+    .btn-outline {
+      background: transparent;
+      color: #1b6b50;
+      border: 1px solid #1b6b50;
+    }
+    .btn-outline:hover {
+      background: #e0f0e9;
+    }
+    .footer {
+      background: #0b2b4a;
+      color: #e0edf5;
+      padding: 32px 0;
+      margin-top: 20px;
+    }
+    .footer a {
+      color: #e6b422;
+      text-decoration: none;
+    }
+    .footer a:hover {
+      text-decoration: underline;
+    }
+    /* responsive */
+    @media (max-width: 768px) {
+      .main-header .container {
+        flex-direction: column;
+        align-items: start;
+        gap: 20px;
+      }
+      .title-section h1 {
+        font-size: 1.8rem;
+      }
+      .nav-links li a {
+        padding: 12px 10px;
+        font-size: 0.85rem;
+      }
+    }
+    /* Nota validación */
+    .validation-note {
+      background: #fef7e7;
+      border-left: 6px solid #e6b422;
+      padding: 18px 24px;
+      border-radius: 12px;
+      margin: 40px 0 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="top-bar">
+    <div class="container">
+      <div class="institution-logos">
+        <div class="logo-placeholder">
+          <i class="fas fa-shield-alt logo-icon" style="color:#e6b422;"></i>
+          <span class="logo-text">CNDH<br><small>MÉXICO</small></span>
+        </div>
+        <div class="logo-placeholder">
+          <i class="fas fa-hospital logo-icon" style="color:#ffffff;"></i>
+          <span class="logo-text">SESVER<br><small>Servicios de Salud de Veracruz</small></span>
+        </div>
+      </div>
+      <div>
+        <i class="fas fa-calendar-alt"></i> 40 horas · 30 participantes
+      </div>
+    </div>
+  </div>
+
+  <header class="main-header">
+    <div class="container">
+      <div class="title-section">
+        <h1>Desarrollo del Potencial Humano<br>con Enfoque de Derechos Humanos y Agenda 2030</h1>
+        <div class="subhead">Taller presencial grupal · SESVER · Departamento de Desarrollo del Potencial Humano</div>
+      </div>
+      <div class="badge-dph">
+        <i class="fas fa-chalkboard-user"></i> Alineado a EC0301
+      </div>
+    </div>
+  </header>
+
+  <nav class="nav-bar">
+    <div class="container">
+      <ul class="nav-links">
+        <li><a href="#presentacion" class="active"><i class="fas fa-info-circle"></i> Presentación</a></li>
+        <li><a href="#objetivos"><i class="fas fa-bullseye"></i> Objetivos</a></li>
+        <li><a href="#estructura"><i class="fas fa-layer-group"></i> Estructura</a></li>
+        <li><a href="#metodologia"><i class="fas fa-users-gear"></i> Metodología</a></li>
+        <li><a href="#evaluacion"><i class="fas fa-check-double"></i> Evaluación</a></li>
+        <li><a href="#satisfaccion"><i class="fas fa-star"></i> Satisfacción</a></li>
+        <li><a href="#referencias"><i class="fas fa-book"></i> Referencias</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+    <!-- PRESENTACIÓN / JUSTIFICACIÓN -->
+    <section id="presentacion">
+      <div class="container">
+        <h2 class="section-title"><i class="fas fa-file-lines"></i> Justificación y análisis de necesidades</h2>
+        <div class="card">
+          <p style="margin-bottom: 16px;">La acción formativa parte del análisis crítico de los supuestos institucionales: se asume que el personal de SESVER comparte una comprensión homogénea del “desarrollo del potencial humano”. Un escéptico bien informado advertiría que, en entornos de alta presión asistencial, este concepto puede percibirse como abstracto. La evidencia en andragogía y gestión del talento humano en salud indica que la transferencia efectiva exige anclaje en problemas laborales concretos y el reconocimiento del personal como sujeto de derechos (Acosta-Leal, 2023; Bernal, 2023).</p>
+          <p><strong>Ejes fundamentales:</strong></p>
+          <ul style="margin: 16px 0 0 24px;">
+            <li><strong>Institucional:</strong> SESVER impulsa la integración del desarrollo humano y los derechos humanos. La falta de acceso público actualizado a su estructura exige mecanismos de validación directa.</li>
+            <li><strong>Normativo y de DDHH:</strong> La CNDH ha emitido recomendaciones a SESVER por violaciones a derechos humanos en atención médica, lo que evidencia la urgencia de transversalizar este enfoque.</li>
+            <li><strong>Global:</strong> Los ODS (3, 4, 8) proporcionan el marco ético para el desarrollo del potencial humano en el sector salud.</li>
+          </ul>
+        </div>
+        <div class="validation-note">
+          <i class="fas fa-clipboard-check" style="margin-right: 10px; color:#b38f00;"></i>
+          <strong>Nota metodológica:</strong> La imposibilidad de acceder directamente a los contenidos del sitio web de SESVER durante el diseño subraya una limitación. Se recomienda enfáticamente validar esta propuesta con el Departamento de Desarrollo del Potencial Humano antes de su implementación.
+        </div>
+      </div>
+    </section>
+
+    <!-- OBJETIVOS -->
+    <section id="objetivos">
+      <div class="container">
+        <h2 class="section-title"><i class="fas fa-bullseye"></i> Objetivos de aprendizaje</h2>
+        <div class="card-grid">
+          <div class="card">
+            <h3>Objetivo general</h3>
+            <p>Diseñar e implementar estrategias de desarrollo del potencial humano en centros de salud, alineadas al enfoque de derechos humanos, los ODS y la normatividad de SESVER, mediante un plan de acción aplicable a su contexto.</p>
+          </div>
+          <div class="card">
+            <h3>Específicos</h3>
+            <ul style="margin-left: 20px;">
+              <li>Analizar fundamentos teóricos del DPH desde perspectiva crítica.</li>
+              <li>Identificar principios de andragogía en formación de personal adulto.</li>
+              <li>Relacionar marco CNDH y ODS con funciones en SESVER.</li>
+              <li>Elaborar carta descriptiva conforme a EC0301.</li>
+              <li>Diseñar instrumentos de evaluación del aprendizaje y satisfacción.</li>
+              <li>Construir plan de acción personalizado.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ESTRUCTURA CURRICULAR -->
+    <section id="estructura">
+      <div class="container">
+        <h2 class="section-title"><i class="fas fa-sitemap"></i> Estructura curricular (alineada a EC0301)</h2>
+        <div class="table-responsive">
+          <table>
+            <thead>
+              <tr><th>Módulo</th><th>Tema</th><th>Duración</th><th>Técnica instruccional</th><th>ODS / CNDH</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>1</td><td>Fundamentos críticos del Desarrollo del Potencial Humano en Salud</td><td>8 h</td><td>Exposición dialogada, análisis de casos, debate</td><td>ODS 3,8</td></tr>
+              <tr><td>2</td><td>Andragogía y metodología para la formación de adultos en SESVER</td><td>8 h</td><td>Taller vivencial, microenseñanza</td><td>ODS 4</td></tr>
+              <tr><td>3</td><td>Derechos Humanos y Agenda 2030: marco ético para la práctica en salud</td><td>8 h</td><td>ABP, análisis recomendaciones CNDH</td><td>Eje CNDH, ODS 3,4,8</td></tr>
+              <tr><td>4</td><td>Diseño curricular aplicado (EC0301)</td><td>10 h</td><td>Taller práctico, aprendizaje colaborativo</td><td>Alineación EC0301</td></tr>
+              <tr><td>5</td><td>Evaluación del aprendizaje y de la satisfacción</td><td>4 h</td><td>Demostración-ejecución, análisis</td><td>Alineación EC0301</td></tr>
+              <tr><td>6</td><td>Integración y Plan de Acción</td><td>2 h</td><td>Presentación de proyectos, plenaria</td><td>Aplicación institucional</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <!-- Detalle por módulo con acordeón -->
+        <h3 style="margin: 32px 0 20px; color: #0b2b4a;">Contenido detallado y actividades estratégicas</h3>
+        <div class="accordion">
+          <div class="accordion-item">
+            <div class="accordion-header"><span><i class="fas fa-brain" style="margin-right: 12px;"></i>Módulo 1 · Fundamentos críticos</span> <i class="fas fa-chevron-right"></i></div>
+            <div class="accordion-content"><div class="accordion-content-inner">
+              <p><strong>Contenidos:</strong> Conceptualización del DPH, capital humano vs desarrollo humano, factores inhibidores (burnout, liderazgo), análisis de la estrategia de SESVER.</p>
+              <p><strong>Actividad estratégica:</strong> Debate estructurado: "¿Es posible el desarrollo del potencial humano en condiciones de precariedad laboral y alta demanda asistencial?"</p>
+            </div></div>
+          </div>
+          <div class="accordion-item">
+            <div class="accordion-header"><span><i class="fas fa-chalkboard" style="margin-right: 12px;"></i>Módulo 2 · Andragogía</span> <i class="fas fa-chevron-right"></i></div>
+            <div class="accordion-content"><div class="accordion-content-inner">
+              <p><strong>Contenidos:</strong> Principios de Knowles, estrategias didácticas (ABP, casos, simulaciones), rol del facilitador, características del personal de salud como aprendices adultos.</p>
+              <p><strong>Actividad estratégica:</strong> Microenseñanza de 10 minutos con retroalimentación entre pares.</p>
+            </div></div>
+          </div>
+          <div class="accordion-item">
+            <div class="accordion-header"><span><i class="fas fa-scale-balanced" style="margin-right: 12px;"></i>Módulo 3 · DDHH y Agenda 2030</span> <i class="fas fa-chevron-right"></i></div>
+            <div class="accordion-content"><div class="accordion-content-inner">
+              <p><strong>Contenidos:</strong> Principios de DDHH, derecho a la salud, análisis de Recomendación 20/2024 CNDH, ODS 3,4,8, transversalización del enfoque.</p>
+              <p><strong>Actividad estratégica:</strong> Aprendizaje Basado en Problemas (ABP) con caso real anonimizado de violación de DDHH.</p>
+            </div></div>
+          </div>
+          <div class="accordion-item">
+            <div class="accordion-header"><span><i class="fas fa-pen-ruler" style="margin-right: 12px;"></i>Módulo 4 · Diseño curricular EC0301</span> <i class="fas fa-chevron-right"></i></div>
+            <div class="accordion-content"><div class="accordion-content-inner">
+              <p><strong>Contenidos:</strong> Estándar EC0301, carta descriptiva, técnicas de instrucción, manual del instructor y participante.</p>
+              <p><strong>Actividad estratégica:</strong> Taller práctico: diseño de carta descriptiva de curso de 4-8h sobre "Desarrollo Humano y Calidad en la Atención".</p>
+            </div></div>
+          </div>
+          <div class="accordion-item">
+            <div class="accordion-header"><span><i class="fas fa-clipboard-list" style="margin-right: 12px;"></i>Módulo 5 · Evaluación</span> <i class="fas fa-chevron-right"></i></div>
+            <div class="accordion-content"><div class="accordion-content-inner">
+              <p><strong>Contenidos:</strong> Evaluación del aprendizaje, diseño de reactivos, instrumentos de satisfacción (EC0301), validez y confiabilidad.</p>
+              <p><strong>Actividad estratégica:</strong> Diseño supervisado de instrumento de satisfacción con escala Likert.</p>
+            </div></div>
+          </div>
+          <div class="accordion-item">
+            <div class="accordion-header"><span><i class="fas fa-flag-checkered" style="margin-right: 12px;"></i>Módulo 6 · Integración</span> <i class="fas fa-chevron-right"></i></div>
+            <div class="accordion-content"><div class="accordion-content-inner">
+              <p><strong>Contenidos:</strong> Presentación de productos integradores, retroalimentación, plan de acción personalizado.</p>
+              <p><strong>Actividad estratégica:</strong> Plenaria de cierre con compromisos de aplicación a 3 meses.</p>
+            </div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- METODOLOGÍA -->
+    <section id="metodologia">
+      <div class="container">
+        <h2 class="section-title"><i class="fas fa-users-gear"></i> Metodología y estrategias didácticas</h2>
+        <div class="card-grid">
+          <div class="card"><i class="fas fa-comments" style="font-size: 2rem; color:#1b6b50; margin-bottom: 12px;"></i><h3>Exposición dialogada</h3><p>Presentación de contenidos con interacción constante.</p></div>
+          <div class="card"><i class="fas fa-briefcase" style="font-size: 2rem; color:#1b6b50; margin-bottom: 12px;"></i><h3>Análisis de casos</h3><p>Conexión teoría-realidad de servicios de salud.</p></div>
+          <div class="card"><i class="fas fa-puzzle-piece" style="font-size: 2rem; color:#1b6b50; margin-bottom: 12px;"></i><h3>ABP</h3><p>Pensamiento crítico y resolución de problemas complejos.</p></div>
+          <div class="card"><i class="fas fa-hands" style="font-size: 2rem; color:#1b6b50; margin-bottom: 12px;"></i><h3>Talleres prácticos</h3><p>Aplicación de EC0301 en productos concretos.</p></div>
+          <div class="card"><i class="fas fa-microphone" style="font-size: 2rem; color:#1b6b50; margin-bottom: 12px;"></i><h3>Microenseñanza</h3><p>Desarrollo de habilidades de facilitación.</p></div>
+          <div class="card"><i class="fas fa-people-arrows" style="font-size: 2rem; color:#1b6b50; margin-bottom: 12px;"></i><h3>Debate estructurado</h3><p>Análisis de posturas y construcción de argumentos.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EVALUACIÓN DEL APRENDIZAJE -->
+    <section id="evaluacion">
+      <div class="container">
+        <h2 class="section-title"><i class="fas fa-check-double"></i> Evaluación del aprendizaje</h2>
+        <div class="table-responsive">
+          <table>
+            <thead><tr><th>Producto / Evidencia</th><th>Ponderación</th><th>Instrumento</th></tr></thead>
+            <tbody>
+              <tr><td>Participación activa en debates, ABP, plenarias</td><td>20%</td><td>Lista de cotejo</td></tr>
+              <tr><td>Microenseñanza (Módulo 2)</td><td>20%</td><td>Rúbrica de desempeño</td></tr>
+              <tr><td>Carta descriptiva de curso (Módulo 4)</td><td>30%</td><td>Lista de verificación EC0301</td></tr>
+              <tr><td>Instrumento de evaluación de satisfacción (Módulo 5)</td><td>10%</td><td>Lista de verificación EC0301</td></tr>
+              <tr><td>Plan de acción personalizado (Módulo 6)</td><td>20%</td><td>Rúbrica de proyecto</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- INSTRUMENTO DE SATISFACCIÓN -->
+    <section id="satisfaccion">
+      <div class="container">
+        <h2 class="section-title"><i class="fas fa-star"></i> Instrumento de satisfacción (EC0301)</h2>
+        <div class="survey-box">
+          <h3 style="margin-bottom: 8px;">Encuesta de satisfacción del taller</h3>
+          <p style="margin-bottom: 24px;"><i class="fas fa-edit"></i> “Desarrollo del Potencial Humano con Enfoque de Derechos Humanos y Agenda 2030 en SESVER”</p>
+          <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-bottom: 20px;">
+            <span><i class="far fa-calendar"></i> Fecha: _____________</span>
+            <span><i class="fas fa-location-dot"></i> Sede: _____________</span>
+            <span><i class="fas fa-user-check"></i> Facilitador(a): _____________</span>
+          </div>
+          <p><strong>Instrucciones:</strong> Valore los siguientes aspectos marcando con una “X” según la escala:</p>
+          <div class="likert-scale">
+            <span>1 Totalmente en desacuerdo</span><span>2 En desacuerdo</span><span>3 Ni de acuerdo ni en desacuerdo</span><span>4 De acuerdo</span><span>5 Totalmente de acuerdo</span>
+          </div>
+
+          <!-- formulario simulado (no funcional, solo demostrativo) -->
+          <form onsubmit="alert('Simulación: Gracias por su evaluación. (Versión demostrativa)'); return false;">
+            <div style="margin-bottom: 24px;">
+              <h4>1. Contenido y estructura</h4>
+              <div class="survey-item"><p>1.1 Los objetivos fueron claros y se cumplieron.</p><div class="radio-group"> <label><input type="radio" name="q1" value="1"> 1</label><label><input type="radio" name="q1" value="2"> 2</label><label><input type="radio" name="q1" value="3"> 3</label><label><input type="radio" name="q1" value="4"> 4</label><label><input type="radio" name="q1" value="5"> 5</label> </div></div>
+              <div class="survey-item"><p>1.2 Los contenidos fueron relevantes para mi trabajo en SESVER.</p><div class="radio-group"> <label><input type="radio" name="q2"> 1</label><label><input type="radio" name="q2"> 2</label><label><input type="radio" name="q2"> 3</label><label><input type="radio" name="q2"> 4</label><label><input type="radio" name="q2"> 5</label> </div></div>
+              <div class="survey-item"><p>1.3 La estructura y secuencia fue lógica.</p><div class="radio-group"> <label><input type="radio" name="q3"> 1</label><label><input type="radio" name="q3"> 2</label><label><input type="radio" name="q3"> 3</label><label><input type="radio" name="q3"> 4</label><label><input type="radio" name="q3"> 5</label> </div></div>
+            </div>
+            <div style="margin-bottom: 24px;">
+              <h4>2. Desempeño del facilitador</h4>
+              <div class="survey-item"><p>2.1 El facilitador demostró dominio de los temas.</p><div class="radio-group"> <label><input type="radio" name="q4"> 1</label><label><input type="radio" name="q4"> 2</label><label><input type="radio" name="q4"> 3</label><label><input type="radio" name="q4"> 4</label><label><input type="radio" name="q4"> 5</label> </div></div>
+            </div>
+            <div style="margin-bottom: 24px;">
+              <h4>3. Materiales y logística</h4>
+              <div class="survey-item"><p>3.1 Los materiales didácticos fueron útiles.</p><div class="radio-group"> <label><input type="radio" name="q5"> 1</label><label><input type="radio" name="q5"> 2</label><label><input type="radio" name="q5"> 3</label><label><input type="radio" name="q5"> 4</label><label><input type="radio" name="q5"> 5</label> </div></div>
+            </div>
+            <div style="margin-bottom: 28px;">
+              <h4>4. Aplicabilidad y valor percibido</h4>
+              <div class="survey-item"><p>4.1 Los aprendizajes son aplicables a mi práctica laboral.</p><div class="radio-group"> <label><input type="radio" name="q6"> 1</label><label><input type="radio" name="q6"> 2</label><label><input type="radio" name="q6"> 3</label><label><input type="radio" name="q6"> 4</label><label><input type="radio" name="q6"> 5</label> </div></div>
+            </div>
+            <div style="margin-bottom: 24px;">
+              <label><strong>¿Qué fue lo más valioso que aprendió?</strong><br><textarea rows="2" style="width:100%; padding: 12px; border-radius: 12px; border:1px solid #ccc; margin-top:8px;"></textarea></label>
+            </div>
+            <div style="margin-bottom: 24px;">
+              <label><strong>Sugerencias para mejorar:</strong><br><textarea rows="2" style="width:100%; padding: 12px; border-radius: 12px; border:1px solid #ccc; margin-top:8px;"></textarea></label>
+            </div>
+            <button type="submit" class="btn"><i class="fas fa-paper-plane"></i> Enviar evaluación (demostración)</button>
+          </form>
+          <p style="margin-top: 20px; font-style:italic;">* Este instrumento cumple con los requerimientos del EC0301.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- REFERENCIAS -->
+    <section id="referencias">
+      <div class="container">
+        <h2 class="section-title"><i class="fas fa-book-open"></i> Referencias (APA 7ª ed.)</h2>
+        <div class="card" style="padding: 28px;">
+          <ul style="list-style-type: none; padding-left: 0;">
+            <li style="margin-bottom: 14px;">Bernal, K. R. M. (2023). Enfoque andragógico para el fortalecimiento de competencias docentes. <em>IDICAP</em>.</li>
+            <li style="margin-bottom: 14px;">Comisión Nacional de los Derechos Humanos. (s.f.). <em>Página de inicio</em>. https://www.cndh.org.mx/</li>
+            <li style="margin-bottom: 14px;">Comisión Nacional de los Derechos Humanos. (2024). CNDH emite Recomendación al ISSSTE y a SESVER por el fallecimiento de una recién nacida… https://www.cndh.org.mx/</li>
+            <li style="margin-bottom: 14px;">Consejo Nacional de Normalización y Certificación de Competencias Laborales. (2021). <em>EC0301: Diseño de cursos de formación del capital humano...</em> https://www.gob.mx/</li>
+            <li style="margin-bottom: 14px;">Naciones Unidas. (2020). <em>Objetivos y metas de desarrollo sostenible</em>. https://www.un.org/sustainabledevelopment/es/</li>
+            <li style="margin-bottom: 14px;">Servicios de Salud de Veracruz. (s.f.). <em>Departamento de Desarrollo del Potencial Humano</em>. https://www.ssaver.gob.mx/seic/dph/</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center;">
+        <div>
+          <i class="fas fa-regular fa-copyright"></i> 2026 · Departamento de Desarrollo del Potencial Humano · SESVER<br>
+          <span style="font-size:0.9rem;">Diseño curricular alineado a EC0301, CNDH y ODS.</span>
+        </div>
+        <div>
+          <i class="fas fa-envelope"></i> dph@ssaver.gob.mx · <i class="fas fa-phone"></i> (228) 842 3000
+        </div>
+      </div>
+      <hr style="border-color:#2c5777; margin: 24px 0;">
+      <p style="text-align:center; font-size:0.9rem;">Esta propuesta es un documento de trabajo. Se requiere validación institucional antes de su implementación.</p>
+    </div>
+  </footer>
+
+  <script>
+    (function(){
+      // Smooth scroll para navegación
+      const links = document.querySelectorAll('.nav-links a');
+      links.forEach(link => {
+        link.addEventListener('click', function(e) {
+          e.preventDefault();
+          const targetId = this.getAttribute('href');
+          if(targetId === '#') return;
+          const targetElement = document.querySelector(targetId);
+          if(targetElement) {
+            targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            // Actualizar clase active
+            links.forEach(l => l.classList.remove('active'));
+            this.classList.add('active');
+          }
+        });
+      });
+
+      // Acordeones para módulos
+      const accordionHeaders = document.querySelectorAll('.accordion-header');
+      accordionHeaders.forEach(header => {
+        header.addEventListener('click', function() {
+          const item = this.closest('.accordion-item');
+          item.classList.toggle('active-acc');
+        });
+      });
+
+      // Marcar sección activa al hacer scroll (básico)
+      window.addEventListener('scroll', function() {
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('.nav-links a');
+        let current = '';
+        sections.forEach(section => {
+          const sectionTop = section.offsetTop - 100;
+          const sectionHeight = section.clientHeight;
+          if(pageYOffset >= sectionTop && pageYOffset < sectionTop + sectionHeight) {
+            current = section.getAttribute('id');
+          }
+        });
+        navLinks.forEach(link => {
+          link.classList.remove('active');
+          const href = link.getAttribute('href').substring(1);
+          if(href === current) link.classList.add('active');
+        });
+      });
+    })();
+  </script>
+  <!-- Pequeño ajuste para accesibilidad de acordeón -->
+  <style>
+    .accordion-header { user-select: none; }
+    .active-acc .accordion-header { background: #e1edf5; }
+    .radio-group label { margin-right: 8px; }
+    textarea { font-family: 'Inter', sans-serif; }
+  </style>
+</body>
+</html>
